@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" href="https://takahashi1378.github.io/kadai03_janken02/css/style.css">
+<title>じゃんけんアプリ</title>
+</head>
+<body>
+
+<header>
+    <h1 id="title">じゃんけんアプリ</h1>
+    <div id="btn">
+        <ul>
+            <li id="gi"><img src="https://takahashi1378.github.io/kadai03_janken02//img/ja-01.jpeg" alt="送信" />グーを出す</li>
+            <li id="ti"><img src="https://takahashi1378.github.io/kadai03_janken02//img/ja-03.jpeg" alt="送信" />チョキを出す</li>
+            <li id="pa"><img src="https://takahashi1378.github.io/kadai03_janken02//img/ja-02.jpeg" alt="送信" />パーを出す</li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <p id="echo"></p>
+    <div id="judgment" ><p>負けたの？勝ったの？</p></div>
+    <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+ <br>
+</main>
+
+
+<footer></footer>
+<!-- JQuery  /bodyの上に記述  下に記述-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+$("#btn").on("click",function(){//クリックしたら開始 clickを変更するだけ
+            $("#title").css("color","red");  /*cssの変更*/
+            $("#title").hide(1000);  /*1000で消す*/
+            $("#title").fadeIn(1000);  /*1000でin*/
+            $("#title").animate({
+    'fontSize': '95px'
+});
+        });  
+
+
+    // グーここから
+$("#gi").on("click",function(){
+    // alert("ok");
+    
+// 乱数
+const r =Math.ceil(Math. random()*3);
+
+// if分岐
+let view ="";
+if(r==1){
+    view='<img src="https://takahashi1378.github.io/kadai03_janken02//img/lose.jpg" alt="送信" />' 
+    view2="パー"
+    view3="負け"
+    // alert("負け"); //rが５～15の間ならOK7と表記
+}
+if(r==2){
+    view='<img src="https://takahashi1378.github.io/kadai03_janken02//img/draw.png" alt="送信" />' 
+    view2="グー"
+    view3="あいこ"
+    // alert("あいこ"); //rが５～15の間ならOK7と表記
+}
+if(r==3){
+    view='<img src="https://takahashi1378.github.io/kadai03_janken02//img/win.jpg" alt="送信" />' 
+    view2="チョキ"
+    view3="勝ち"
+    // alert("勝ち"); //rが５～15の間ならOK7と表記
+}
+
+
+
+
+// 表示
+$("#echo").html(view);
+$("#pc_hands").html(view2);
+$("#judgment").html(view3);
+});
+
+
+
+
+   // グーここまで
+
+
+// チョキここから
+$("#ti").on("click",function(){
+ 
+    
+// 乱数
+const r =Math.ceil(Math. random()*3);
+
+// if分岐
+let view ="";
+if(r==1){
+    view='<img src="https://takahashi1378.github.io/kadai03_janken02//img/win.jpg" alt="送信" />'
+    view2="パー"
+    view3="勝ち"
+}
+if(r==2){
+    view='<img src="https://takahashi1378.github.io/kadai03_janken02//img/lose.jpg" alt="送信" />' 
+    view2="グー"
+    view3="負け"
+}
+if(r==3){
+    view='<img src="https://takahashi1378.github.io/kadai03_janken02//img/draw.png" alt="送信" />'
+    view2="チョキ"
+    view3="あいこ"
+}
+
+
+// 表示
+$("#echo").html(view);
+$("#pc_hands").html(view2);
+$("#judgment").html(view3);
+});
+
+
+
+// パーここから
+$("#pa").on("click",function(){
+
+
+    
+// 乱数
+const r =Math.ceil(Math. random()*3);
+
+// if分岐
+let view ="";
+if(r==1){
+    view='<img src="https://takahashi1378.github.io/kadai03_janken02//img/draw.png" alt="送信" /> '
+    view2="パー"
+    view3="あいこ"
+}
+if(r==2){
+    view='<img src="https://takahashi1378.github.io/kadai03_janken02//img/win.jpg" alt="送信" />'
+    view2="グー"
+    view3="勝ち"
+}
+if(r==3){
+    view='<img src="https://takahashi1378.github.io/kadai03_janken02//img/lose.jpg" alt="送信" />' 
+    view2="チョキ"
+    view3="まけ"
+}
+
+
+// 表示
+$("#echo").html(view);
+$("#pc_hands").html(view2);
+$("#judgment").html(view3);
+});
+
+
+
+
+
+</script>
+</body>
+</html>
